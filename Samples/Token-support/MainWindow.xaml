@@ -1,0 +1,42 @@
+﻿<syncfusion:ChromelessWindow x:Class="TokenDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:TokenDemo"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        syncfusion:SfSkinManager.Theme="{syncfusion:SkinManagerExtension ThemeName=FluentLight}"
+        Title="Token Demo" Height="459.667" Width="648" >
+    <Window.DataContext>
+        <local:ComboBoxViewModel />
+    </Window.DataContext>
+    <Grid x:Name="tokenGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Left"
+            Margin="10,0,10,10"
+            x:Name="label1"
+            Content="Token Support"
+            FontWeight="Bold"/>
+        <syncfusion:ComboBoxAdv
+            HorizontalAlignment="Center"
+            Grid.Row="1"
+            Width="250"
+            Height="24"
+            Margin="10,0,10,30"
+            x:Name="multiSelectionComboBox"
+            AllowMultiSelect="True"
+            EnableOKCancel="True"
+            IsEditable="True"
+            EnableToken="True"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Collection}"
+            SelectedItems="{Binding DefaultSelectedItemCollection}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-140,-120,0,0" TextWrapping="Wrap" Text="This sample describes the Token support in ComboBoxAdv." VerticalAlignment="Top"/>
+    </Grid>
+</syncfusion:ChromelessWindow>
